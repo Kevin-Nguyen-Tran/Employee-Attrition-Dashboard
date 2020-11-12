@@ -9,6 +9,7 @@ employee_data <- rename(employee_data, Age = ï..Age)
 employee_data2 <- employee_data %>%
   select(Age, HourlyRate)
 
+employee_data3 <- top_n(employee_data, 50)
 
 #ui <- fluidPage(
   #selectInput(inputId = "varix", label = "Choose X Variable", "Distance" = "employee_data[ ,4]", "Age" = "employee_data[ ,1]"),
@@ -39,7 +40,30 @@ server <- function(input, output){
 shinyApp(ui = ui, server = server)
 
 
+#--------------------------------------------------------------------------------------------------------------------------------
 
+#--------------------------------------------------------------------------------------------------------------------------------
+
+ui <- fluidPage(
+  radioButtons(inputId = "plotType", label = "Plot Type:", choices = c("Box Plot" = "box", "Bar Chart" = "bar")),
+  plotOutput(outputId = "plot")
+)
+
+server <- function(input, output){
+  output$plot <- renderPlot({
+    if(input$plotType == "box"){
+      boxplot(employee_data3$Age,
+              xlab = "Employees",
+              ylab = "Age (averages")
+    } else {
+      barplot(employee_data3$Age,
+              xlab = "Employee",
+              ylab = "Age")
+    }
+  })
+}
+
+shinyApp(ui = ui, server = server)
 
 
 

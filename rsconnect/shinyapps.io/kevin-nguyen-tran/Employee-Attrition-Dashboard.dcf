@@ -1,0 +1,12 @@
+name: Employee-Attrition-Dashboard
+title: Employee-Attrition-Dashboard
+username:
+account: kevin-nguyen-tran
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3246261
+bundleId: 3869131
+url: https://kevin-nguyen-tran.shinyapps.io/Employee-Attrition-Dashboard/
+when: 1605574947.25224
+asMultiple: FALSE
+asStatic: FALSE
